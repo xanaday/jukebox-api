@@ -1,0 +1,65 @@
+body {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: #000000 url("http://cdn.wallpapersafari.com/90/36/Zkia3T.jpg") no-repeat center fixed;
+}
+
+#container {
+  width: 330px;
+  min-height: 400px;
+  background: rgba(0, 0, 0, .5);
+  overflow: auto;
+  margin: 60px auto;
+  border: #666 solid 2px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#buttons {
+  display: block;
+  margin: 23px auto;
+}
+
+button#prev {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+button#play {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+button#pause {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+button#stop {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+button#next {
+  width: auto;
+  height: auto;
+  float: left;
+}
+
+#volume {
+  width: 250px;
+}
+
+#songs {
+  color: rgb(255, 255, 255);
+  list-style: none;
+  padding: 10px;
+  font-size: .8em;
+}

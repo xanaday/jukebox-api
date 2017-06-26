@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>jukebox</title>
+  <link rel="stylesheet" type="text/css" href="juke.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <i class="material-icons">pause_circle_filled</i>
+<i class="material-icons">fast_forward</i>
+<i class="material-icons">fast_rewind</i>
+<i class="material-icons">play_circle_filled</i>
+<i class="material-icons">volume_up</i>
+<i class="material-icons">volume_down</i>
+<i class="material-icons">volume_mute</i> -->
+  <audio id="audioPlayer">
+  </audio>
+  <div id="container">
+    <div id="buttons">
+      <button id="prevBtn"><i class="material-icons">skip_previous</i></button>
+      <button id="playBtn"><i class="material-icons">play_circle_outline</i></button>
+      <button id="pauseBtn"><i class="material-icons">pause_circle_outline</i></button>
+      <button id="stopBtn"><i class="material-icons">stop</i></button>
+      <button id="nextBtn"><i class="material-icons">skip_next</i></button>
+    </div>
+    <input id="volume" type="range" min="0" max="10" value="5">
+    <ul id="songs">
+      <li id="audio1">I Don't Know Why.mp3</li>
+      <li id="audio2">Whatever It Takes.mp3</li>
+      <li id="audio3">Believer.mp3</li>
+      <li id="audio4">Walking the Wire.mp3</li>
+    </ul>
+  </div>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <script src="juke.js"></script>
+</body>
+
+</html>
