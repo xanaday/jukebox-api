@@ -23,34 +23,34 @@ body {
   margin: 23px auto;
 }
 
-button#prev {
+button#prevBtn {
   width: auto;
-  height: auto;
-  float: left;
+  height: 28px;
+  border-radius: 30px;
 }
 
-button#play {
+button#playBtn {
   width: auto;
-  height: auto;
-  float: left;
+  height: 28px;
+  border-radius: 30px;
 }
 
-button#pause {
+button#pauseBtn {
   width: auto;
-  height: auto;
-  float: left;
+  height: 28px;
+  border-radius: 30px;
 }
 
-button#stop {
+button#stopBtn {
   width: auto;
-  height: auto;
-  float: left;
+  height: 28px;
+  border-radius: 30px;
 }
 
-button#next {
+button#nextBtn {
   width: auto;
-  height: auto;
-  float: left;
+  height: 28px;
+  border-radius: 30px;
 }
 
 #volume {
@@ -63,3 +63,23 @@ button#next {
   padding: 10px;
   font-size: .8em;
 }
+
+/*li#zero{
+  cursor: pointer;
+  display: inline-block;
+}
+
+li#one{
+  cursor: pointer;
+  display: inline-block;
+}
+
+li#two{
+  cursor: pointer;
+  display: inline-block;
+}
+
+li#three{
+  cursor: pointer;
+  display: inline-block;
+}*/

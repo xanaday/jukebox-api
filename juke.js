@@ -17,11 +17,10 @@ function Jukebox() {
   this.playlist = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3']
   this.currentIndex = 0
   this.audio = $('#audioPlayer')[0]
-  this.audio.src = this.playlist[this.currentIndex]
-
   // console.log(this.audio)
 
   this.play = function(){
+      this.audio.src = this.playlist[this.currentIndex]
       this.audio.play();
       // console.log(this.currentIndex)
   }
@@ -54,11 +53,9 @@ function Jukebox() {
       this.audio.src = this.playlist[this.currentIndex];
       this.play();
   }
-
 }
 
 var thisIsMyJukebox = new Jukebox()
-
 
 //pass the play function by reference
 $('#playBtn').click(function(){
@@ -76,5 +73,9 @@ $('#prevBtn').click(function(){
 $('#nextBtn').click(function(){
   thisIsMyJukebox.next()
 })
-
+$('li').click(function(event){
+  thisIsMyJukebox.currentIndex = event.target.id
+  thisIsMyJukebox.pause();
+  thisIsMyJukebox.play();
+})
 });
