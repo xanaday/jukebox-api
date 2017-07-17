@@ -31,44 +31,49 @@ $(document).ready(function() {
       var display = document.getElementById('display');
       display.innerHTML = '';
 
-      var i = 0;
       list.forEach(function(item) {
-        var $item = document.createElement('div');
+        var $item = document.createElement('li');
         $item.innerHTML = item.title;
-        $item.classList.add('track');
-        $item.setAttribute('id', item.id);
-        $item.setAttribute('index', i);
-        $item.addEventListener('click', function(){
-          _this.currentSongIndex =  $item.getAttribute('index');
-          _this.play();
-        })
+        // $item.classList.add('track');
+        // $item.setAttribute('id', item.id);
+        // $item.setAttribute('index', i);
+        // $item.addEventListener('click', function(){
+        //   _this.currentSongIndex =  $item.getAttribute('index');
+        //   _this.play();
+        // })
         display.appendChild($item);
-        i++;
+
       })
     }
 
-    this.search = function(query) {
+    this.search = function(){
+      console.log("clicked here")
+      var userInput = $('#q').val()
+      // this.search = function(query) {
+      var self = this;
       SC.get('/tracks', {
-        q: query
-      }).then(function(tracks) {
-        this.songs = tracks.splice(0, 10);
-        this.renderTracks(this.songs);
-      }.bind(this));
+        q: userInput
+        }).then(function(tracks) {
+          console.log(tracks);
+
+        self.songs = tracks;
+        self.renderTracks(self.songs);
+      });
+      // };
     }
 
     this.play = function() {
       var song = this.songs[this.currentSongIndex];
-
       if(this.currentSongID !== song.id) {
         this.currentSongID = song.id;
-        this.audio = SC.stream('/tracks/' + song.id)
+        let self = this;
+        SC.stream('/tracks/' + song.id).then(function(player){
+          self.audio = player;
+          console.log(player)
+          self.renderSong(song);
+          player.play();
+        });
       }
-
-      this.audio.then(function(player){
-        this.player = player;
-        this.renderSong(song);
-        this.player.play();
-      }.bind(this));
     }
 
   this.pause = function(){
@@ -119,9 +124,12 @@ $('#prevBtn').click(function(){
 $('#nextBtn').click(function(){
   thisIsMyJukebox.next()
 })
-input.addEventListener('keyup', function() {
-  myJukebox.search(input.value);
-});
+$('#searchButton').click(function(){
+ thisIsMyJukebox.search()
+})
+// input.addEventListener('keyup', function() {
+//   myJukebox.search(input.value);
+// });
 
-myJukebox.search('');})
+//myJukebox.search('');})
 });
