@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>jukebox</title>
   <link rel="stylesheet" type="text/css" href="juke.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
 </head>
 
@@ -17,10 +18,10 @@
 <i class="material-icons">volume_up</i>
 <i class="material-icons">volume_down</i>
 <i class="material-icons">volume_mute</i> -->
-<div class="search">
-  <input id="q" type="text" name="search" placeholder="Search for a song">
-  <button id="js-searchButton">Search</button>
-</div>
+  <div class="search">
+      <input id="q" type="text" name="search" placeholder="Search for a song">
+      <button id="searchButton">Search</button>
+  </div>
   <audio id="audioPlayer">
   </audio>
   <div id="container">
@@ -32,7 +33,7 @@
       <button id="nextBtn"><i class="material-icons">skip_next</i></button>
     </div>
     <input id="volume" type="range" min="0" max="100" value="50">
-    <ul id="songs">
+    <ul id="display">
       <li id="0">I Don't Know Why.mp3</li>
       <li id="1">Whatever It Takes.mp3</li>
       <li id="2">Believer.mp3</li>
