@@ -57,7 +57,7 @@ button#nextBtn {
   width: 250px;
 }
 
-#songs {
+#display {
   color: rgb(255, 255, 255);
   list-style: none;
   padding: 10px;
