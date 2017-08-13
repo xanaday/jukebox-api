@@ -22,6 +22,7 @@ $(document).ready(function() {
     this.currentSongID = 0;
 
     this.renderSong = function(song) {
+      // I believe this has a problem.
       var $songTitleElem = document.getElementById('song-title');
       $songTitleElem.innerHTML = song.title;
     }
@@ -69,29 +70,35 @@ $(document).ready(function() {
         let self = this;
         SC.stream('/tracks/' + song.id).then(function(player){
           self.audio = player;
-          console.log(player)
+          player.play()
+          console.log(self);
+          // when you call this.rendersong, there's an error inside of it.
+          // that error stops the javascript from continuing past this function.
+          // we had player.play after this. That's all.
           self.renderSong(song);
-          player.play();
         });
       }
     }
 
   this.pause = function(){
       this.audio.pause();
+      console.log(this);
+
   }
 
   this.stop = function(){
       this.audio.pause();
+      console.log(this);
       this.audio.currentTime = 0;
   }
 
   this.next = function(){
       this.audio.pause();
       this.currentIndex++;
-      if(this.currentIndex == this.playlist.length){
+      if(this.currentIndex == this.songs.length){
         this.currentIndex = 0
       };
-      this.audio.src = this.playlist[this.currentIndex];
+      this.audio.src = this.songs[this.currentIndex];
       this.play();
   }
 
